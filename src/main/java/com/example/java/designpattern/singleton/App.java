@@ -17,5 +17,9 @@ public class App {
         Data data2 = Data.getInstance();
         System.out.println(data1 == Data.getInstance());
 
+        Data2 data3 = Data2.getInstance();
+        Data2 data4 = Data2.getInstance();
+        System.out.println(data3 == data4);
+
     }
 }
