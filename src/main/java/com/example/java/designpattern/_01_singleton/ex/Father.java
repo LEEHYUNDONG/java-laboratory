@@ -1,4 +1,4 @@
-package com.example.java.designpattern.singleton.ex;
+package com.example.java.designpattern._01_singleton.ex;
 
 /**
  * @author : lhd

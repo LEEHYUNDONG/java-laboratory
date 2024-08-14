@@ -1,8 +1,8 @@
-package com.example.java.designpattern.singleton;
+package com.example.java.designpattern._02_factorymethod.before;
 
 /**
  * @author : lhd
- * @packageName : com.example.java.designpattern.singleton
+ * @packageName : com.example.java.designpattern.factorymethod.ex
  * @fileName : java
  * @description :
  * <p>
@@ -11,9 +11,9 @@ package com.example.java.designpattern.singleton;
  * ====================================================
  * 2024-08-12         lhd
  */
-public enum Data3 {
-    INSTANCE;
-
-    private Data3(){}
-
+public class Iphone extends Phone {
+    @Override
+    void ring() {
+        System.out.println("Iphone Ring ...");
+    }
 }

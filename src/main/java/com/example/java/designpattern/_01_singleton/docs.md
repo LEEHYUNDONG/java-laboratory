@@ -4,7 +4,7 @@
 ```java
 /**
  * @author : lhd
- * @packageName : com.example.java.designpattern.singleton.ex
+ * @packageName : com.example.java.designpattern._01_singleton.ex
  * @fileName : java
  * @description :
  * <p>
@@ -68,7 +68,7 @@ public class Father {
 ```java
 /**
  * @author : lhd
- * @packageName : com.example.java.designpattern.singleton.ex
+ * @packageName : com.example.java.designpattern._01_singleton.ex
  * @fileName : java
  * @description :
  * <p>

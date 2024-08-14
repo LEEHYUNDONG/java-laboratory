@@ -1,4 +1,4 @@
-package com.example.java.designpattern.factorymethod.ex;
+package com.example.java.designpattern._02_factorymethod.before;
 
 /**
  * @author : lhd
@@ -25,6 +25,8 @@ public class PhoneFactory {
             case "google":
                 phone = new Google();
                 break;
+                //만약에 객체나 제품이 추가되면 아래에 코드를 추가해야함(변경에 열려있음)
+            // 변경에 닫혀있는 코드로 고쳐야한다.
         }
         return phone;
     }

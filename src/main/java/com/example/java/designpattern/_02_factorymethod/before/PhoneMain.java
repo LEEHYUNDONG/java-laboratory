@@ -1,4 +1,4 @@
-package com.example.java.designpattern.factorymethod.ex;
+package com.example.java.designpattern._02_factorymethod.before;
 
 /**
  * @author : lhd

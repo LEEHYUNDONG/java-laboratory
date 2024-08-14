@@ -1,4 +1,4 @@
-package com.example.java.designpattern.factorymethod.ex;
+package com.example.java.designpattern._02_factorymethod.before;
 
 /**
  * @author : lhd
@@ -11,9 +11,9 @@ package com.example.java.designpattern.factorymethod.ex;
  * ====================================================
  * 2024-08-12         lhd
  */
-public class Samsung extends Phone {
+public class Google extends Phone {
     @Override
     void ring() {
-        System.out.println("Samsung Ring ...");
+        System.out.println("Google Ring ...");
     }
 }

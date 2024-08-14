@@ -1,8 +1,8 @@
-package com.example.java.designpattern.factorymethod.ex;
+package com.example.java.designpattern._01_singleton;
 
 /**
  * @author : lhd
- * @packageName : com.example.java.designpattern.factorymethod.ex
+ * @packageName : com.example.java.designpattern.singleton
  * @fileName : java
  * @description :
  * <p>
@@ -11,9 +11,9 @@ package com.example.java.designpattern.factorymethod.ex;
  * ====================================================
  * 2024-08-12         lhd
  */
-public class Google extends Phone {
-    @Override
-    void ring() {
-        System.out.println("Google Ring ...");
-    }
+public enum Data3 {
+    INSTANCE;
+
+    private Data3(){}
+
 }
