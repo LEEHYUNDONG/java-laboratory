@@ -1,4 +1,4 @@
-package com.example.java.basic.polymorphism.ex1;
+package com.example.java.basic.polymorphism.basic.ex1;
 
 /**
  * @author : lhd
@@ -11,9 +11,8 @@ package com.example.java.basic.polymorphism.ex1;
  * ====================================================
  * 2024-08-12         lhd
  */
-public class Animal {
-
-   public void sound() {
-       System.out.println("동물이 웁니다.");
-     }
+public class Cat extends Animal{
+    public void sound() {
+        System.out.println("야옹");
+    }
 }

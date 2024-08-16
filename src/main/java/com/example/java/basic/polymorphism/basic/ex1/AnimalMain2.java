@@ -1,4 +1,4 @@
-package com.example.java.basic.polymorphism.ex1;
+package com.example.java.basic.polymorphism.basic.ex1;
 
 /**
  * @author : lhd
