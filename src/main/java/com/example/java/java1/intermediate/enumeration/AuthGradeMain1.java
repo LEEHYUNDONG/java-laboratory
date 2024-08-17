@@ -1,4 +1,4 @@
-package com.example.java.java1.basic.enumeration;
+package com.example.java.java1.intermediate.enumeration;
 
 /**
  * @author : lhd

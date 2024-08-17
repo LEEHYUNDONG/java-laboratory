@@ -1,4 +1,4 @@
-package com.example.java.java1.basic.exception;
+package com.example.java.java1.intermediate.exception;
 
 /**
  * @author : lhd

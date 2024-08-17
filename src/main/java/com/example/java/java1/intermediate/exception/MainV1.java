@@ -1,4 +1,4 @@
-package com.example.java.java1.basic.exception;
+package com.example.java.java1.intermediate.exception;
 
 import java.util.Scanner;
 
@@ -13,22 +13,21 @@ import java.util.Scanner;
  * ====================================================
  * 2024-06-05         lhd
  */
-public class MainV0 {
+public class MainV1 {
     public static void main(String[] args) {
-        NetworkServiceV0 networkServiceV0 = new NetworkServiceV0();
+        NetworkServiceV1_1 networkService = new NetworkServiceV1_1();
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scammer = new Scanner(System.in);
 
         while (true) {
-
-            System.out.println("전송할 문자: ");
-            String input = scanner.nextLine();
-            if(input.equals("exit")) {
+            System.out.print("전송할 문자 :");
+            String input = scammer.nextLine();
+            if (input.equals("exit")) {
                 break;
             }
-
-            networkServiceV0.sendMessage(input);
+            networkService.sendMessage(input);
             System.out.println();
+
         }
         System.out.println("프로그램을 정상 종료합니다.");
     }

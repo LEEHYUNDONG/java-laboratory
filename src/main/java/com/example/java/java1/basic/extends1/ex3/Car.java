@@ -1,4 +1,4 @@
-package com.example.java.basic.overriding;
+package com.example.java.java1.basic.extends1.ex3;
 
 /**
  * @author : lhd

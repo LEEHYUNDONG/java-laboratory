@@ -1,4 +1,4 @@
-package com.example.java.java1.basic.exception;
+package com.example.java.java1.intermediate.exception;
 
 /**
  * @author : lhd
@@ -11,16 +11,13 @@ package com.example.java.java1.basic.exception;
  * ====================================================
  * 2024-06-05         lhd
  */
-public class NetworkServiceV1_1 {
+public class NetworkServiceV0 {
     public void sendMessage(String data) {
         String address = "http://example.com";
-        NetworkClientV1 client = new NetworkClientV1(address);
-        client.initError(data);
+        NetworkClientV0 networkClientV0 = new NetworkClientV0(address);
 
-        client.connect();
-        client.send(data);
-        client.disconnect();
-
-
+        networkClientV0.connect();
+        networkClientV0.send(data);
+        networkClientV0.disconnect();
     }
 }
