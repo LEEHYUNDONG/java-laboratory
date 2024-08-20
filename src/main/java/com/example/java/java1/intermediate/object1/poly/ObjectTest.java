@@ -1,4 +1,4 @@
-package com.example.java.java1.intermediate.object1;
+package com.example.java.java1.intermediate.object1.poly;
 
 /**
  * @author : lhd

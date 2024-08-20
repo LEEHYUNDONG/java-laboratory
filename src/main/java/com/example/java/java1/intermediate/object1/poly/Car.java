@@ -1,4 +1,4 @@
-package com.example.java.java1.intermediate.object1;
+package com.example.java.java1.intermediate.object1.poly;
 
 /**
  * @author : lhd
@@ -11,8 +11,8 @@ package com.example.java.java1.intermediate.object1;
  * ====================================================
  * 2024-08-19         lhd
  */
-public class Dog {
-    public void bark() {
-        System.out.println("개가 짖습니다.");
+public class Car {
+    public void go() {
+        System.out.println("자동차가 갑니다.");
     }
 }
