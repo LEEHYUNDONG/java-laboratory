@@ -5,11 +5,11 @@ package com.example.java.lang.basic.final1;
  * @packageName : com.example.java.final1
  * @fileName : java
  * @description :
- * <p>
- * ====================================================
- * DATE            AUTHOR              NOTE
- * ====================================================
- * 2024-08-05         lhd
+ *              <p>
+ *              ====================================================
+ *              DATE AUTHOR NOTE
+ *              ====================================================
+ *              2024-08-05 lhd
  */
 public class FinalFieldMain {
     public static void main(String[] args) {
@@ -19,7 +19,7 @@ public class FinalFieldMain {
 
         System.out.println("constructInit1.value = " + constructInit1.value);
         System.out.println("constructInit2.value = " + constructInit2.value);
-        
+
         // final 필드 - 필드 초기화
         System.out.println("필드 초기화");
         FieldInit fieldInit1 = new FieldInit();
@@ -28,7 +28,6 @@ public class FinalFieldMain {
         System.out.println("fieldInit1.value = " + fieldInit1.value);
         System.out.println("fieldInit2.value = " + fieldInit2.value);
         System.out.println("fieldInit3.value = " + fieldInit3.value);
-
 
         System.out.println(FieldInit.CONST_VALUE);
     }
