@@ -14,11 +14,10 @@ package com.example.java.lang.intermediate.object1.immutable;
 public class ImmutableApp {
 
     public static void main(String[] args) {
-        Item item1 = new Item("item1");
-        Item item2;
-
-        item2 = item1;
-        System.out.println(item1 + " " + item2); // 참조형 같은 메모리 참조
-
+//        Item item1 = new Item("item1");
+//        Item item2;
+//
+//        item2 = item1;
+//        System.out.println(item1 + " " + item2); // 참조형 같은 메모리 참조
     }
 }

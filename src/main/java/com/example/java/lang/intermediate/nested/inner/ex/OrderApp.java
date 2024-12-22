@@ -15,8 +15,8 @@ public class OrderApp {
     public static void main(String[] args) {
         Order order = new Order();
 
-        order.setItemName("kimchi");
-        order.setQuantity(1);
+//        order.setItemName("kimchi");
+//        order.setQuantity(1);
 
         // private 으로 감싸져있고 안해도 되는 행위이다.
         // Order.OrderDeliver orderDeliver = order.new OrderDeliver();
