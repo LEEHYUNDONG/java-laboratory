@@ -1,8 +1,8 @@
-package com.example.java.work.masking.config;
+package com.example.java.work.practice.masking.config;
 
-import com.example.java.work.masking.config.annotation.MaskApply;
-import com.example.java.work.masking.entity.MaskType;
-import com.example.java.work.masking.utils.MaskingUtil;
+import com.example.java.work.practice.masking.config.annotation.MaskApply;
+import com.example.java.work.practice.masking.entity.MaskType;
+import com.example.java.work.practice.masking.utils.MaskingUtil;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;

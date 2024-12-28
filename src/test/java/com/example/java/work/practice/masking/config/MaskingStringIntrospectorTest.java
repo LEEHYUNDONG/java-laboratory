@@ -1,6 +1,6 @@
-package com.example.java.work.masking.config;
+package com.example.java.work.practice.masking.config;
 
-import com.example.java.work.masking.dto.MemberResDto;
+import com.example.java.work.practice.masking.dto.MemberResDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

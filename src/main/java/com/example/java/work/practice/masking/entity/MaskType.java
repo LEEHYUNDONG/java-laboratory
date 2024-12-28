@@ -1,4 +1,4 @@
-package com.example.java.work.masking.entity;
+package com.example.java.work.practice.masking.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;

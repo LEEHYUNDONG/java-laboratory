@@ -1,8 +1,6 @@
-package com.example.java.work.masking.utils;
+package com.example.java.work.practice.masking.utils;
 
-import com.example.java.work.masking.entity.MaskType;
-
-import static com.example.java.work.masking.entity.MaskType.NAME;
+import com.example.java.work.practice.masking.entity.MaskType;
 
 public class MaskingUtil {
     public static String mask(MaskType type, String value) {

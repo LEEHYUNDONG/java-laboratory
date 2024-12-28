@@ -1,7 +1,7 @@
-package com.example.java.work.masking.config.annotation;
+package com.example.java.work.practice.masking.config.annotation;
 
-import com.example.java.work.masking.config.MaskStringSerializer;
-import com.example.java.work.masking.entity.MaskType;
+import com.example.java.work.practice.masking.config.MaskStringSerializer;
+import com.example.java.work.practice.masking.entity.MaskType;
 import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 

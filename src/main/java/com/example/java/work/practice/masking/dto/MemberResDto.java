@@ -1,7 +1,7 @@
-package com.example.java.work.masking.dto;
+package com.example.java.work.practice.masking.dto;
 
-import com.example.java.work.masking.config.annotation.MaskApply;
-import com.example.java.work.masking.entity.MaskType;
+import com.example.java.work.practice.masking.config.annotation.MaskApply;
+import com.example.java.work.practice.masking.entity.MaskType;
 import lombok.Builder;
 import lombok.Data;
 
