@@ -1,4 +1,4 @@
-package com.example.java.work.practice.junit.entity;
+package com.example.java.work.practice.junit.junit.entity;
 
 import lombok.Getter;
 

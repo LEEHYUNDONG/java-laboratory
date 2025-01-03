@@ -1,4 +1,4 @@
-package com.example.java.work.practice.junit.entity;
+package com.example.java.work.practice.junit.junit.entity;
 
 public enum TestStatus {
     SUCCESS(1), FAILURE(0);
