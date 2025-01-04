@@ -1,35 +1,35 @@
 package com.example.java.work.practice.junit.junit.entity;
 
-import lombok.Getter;
-
 public class JTestResult {
-    @Getter
-    private TestStatus status;
-    private String message;
     private int passed; //테스트에 몇개 passed
     private int failed; //테스트에 몇개 failed
 
     public JTestResult(int passed, int failed) {
         this.passed = passed;
         this.failed = failed;
-        this.message = "passed: " + passed + " failed: " + failed;
-        setTestStatus(failed);
     }
 
-    private void setTestStatus(int failed) {
-        if (!isTestPassed(failed)){
-            this.status = TestStatus.FAILURE;
-            return;
+    public TestStatus getTestStatus() {
+        if (!isTestAllPassed()) {
+            return TestStatus.FAILURE;
         }
-        this.status = TestStatus.SUCCESS;
-
+        return TestStatus.SUCCESS;
     }
 
-    private boolean isTestPassed(int failed) {
-        return failed == 0 && passed >= 1;
+    private boolean isTestAllPassed() {
+        return this.failed == 0 && passed >= 1;
     }
 
     public String printMessage() {
-        return this.message;
+        return "passed: " + passed + " failed: " + failed;
+    }
+
+    /**
+     * JTest 만들면서 테스트가 성공, 실패 cnt를 처리하는 메서드가 필요하다고 판단
+     */
+
+    public void testFailed() {
+        this.passed--;
+        this.failed++;
     }
 }

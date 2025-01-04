@@ -1,7 +1,5 @@
 package com.example.java.work.practice.junit.calculator.entity;
 
-import com.example.java.work.practice.junit.junit.entity.JTest;
-
 public class CalculatorTest {
 
     private Calculator calculator;
@@ -10,14 +8,22 @@ public class CalculatorTest {
     void add() {
         //given
         Calculator calculator = new Calculator();
-        JTest jTest = new JTest();
 
         //when
-        int result = calculator.add(1, 2);
-
+        //int result = calculator.add(1, 2);
+        System.out.println("add 테스트");
         //then
-        ObjAssert.assertThat(result).isEqualTo(calculator(1, 2));
+    }
 
+    void subtract() {
+        System.out.println("substract 테스트");
+    }
+    void multiply() {
+        System.out.println("multiply 테스트");
+    }
+
+    void divide() {
+        System.out.println("divide 테스트");
     }
 
 }
