@@ -4,8 +4,8 @@ public class JTestResult {
     private int passed; //테스트에 몇개 passed
     private int failed; //테스트에 몇개 failed
 
-    public JTestResult(int passed, int failed) {
-        this.passed = passed;
+    public JTestResult(int testCnt, int failed) {
+        this.passed = testCnt;
         this.failed = failed;
     }
 
@@ -17,7 +17,7 @@ public class JTestResult {
     }
 
     private boolean isTestAllPassed() {
-        return this.failed == 0 && passed >= 1;
+        return this.failed == 0;
     }
 
     public String printMessage() {
@@ -27,7 +27,6 @@ public class JTestResult {
     /**
      * JTest 만들면서 테스트가 성공, 실패 cnt를 처리하는 메서드가 필요하다고 판단
      */
-
     public void testFailed() {
         this.passed--;
         this.failed++;

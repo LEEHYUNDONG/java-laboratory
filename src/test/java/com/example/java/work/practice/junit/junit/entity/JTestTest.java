@@ -6,11 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.InvocationTargetException;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 
 class JTestTest {
 
     @Test
-    void runTest() throws InvocationTargetException, IllegalAccessException, ClassNotFoundException, InstantiationException {
+    void runTest() throws InvocationTargetException, IllegalAccessException, InstantiationException {
         //given
         int passed = 4;
         int failed = 0;
@@ -23,7 +25,7 @@ class JTestTest {
 
         //then
         // 테스트 결과와 테스트가 성공을 출력하는지 확인
-        Assertions.assertThat(result.getTestStatus()).isEqualTo(TestStatus.SUCCESS);
+        assertThat(result.getTestStatus()).isEqualTo(TestStatus.SUCCESS);
         Assertions.assertThat(result.printMessage()).isEqualTo(resultMessageExpected);
     }
 }

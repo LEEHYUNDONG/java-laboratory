@@ -4,7 +4,6 @@ public class CalculatorTest {
 
     private Calculator calculator;
 
-
     void add() {
         //given
         Calculator calculator = new Calculator();

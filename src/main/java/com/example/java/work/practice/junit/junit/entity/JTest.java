@@ -19,9 +19,8 @@ public class JTest {
         //제네릭을 사용해서 해당 클래스의 메소드를 불러온다.
         //테스트 클래스의 생성자는 한개인 것으로 가정
         Constructor<?> constructor = clazz.getDeclaredConstructors()[0];
-
         Method[] methods = clazz.getDeclaredMethods();
-        int numOfMethod = methods.length;
+
 
         /**
          * 테스트 result는 뽑아서 주입을 받아야한다고 생각.
@@ -32,9 +31,21 @@ public class JTest {
          * ------------------------------------------------------------------------
          * 생각이 바뀜 run한 테스트가 테스트 결과를 반환하면 된다고 생각함..
          */
-        JTestResult testResult = new JTestResult(numOfMethod, 0); // 테스트 결과
+        JTestResult testResult = new JTestResult(methods.length, 0); // 테스트 결과
 
+        // setUp
+        /**
+         * 1. 인스턴스 변수 다 불러옴
+         * 2. @BeforeEach 붙은 메서드 가져와
+         * 3. 메서드 실행 - 내부 의존성 주입
+         */
+
+
+        // 이부분이 tearDown이 된다고 생각하면 되는가..? 조금 헷갈림
         for (Method method : methods) {
+            // method에 @Test 어노테이션이 붙이면 continue; 아니면 뺴고
+            // Annotation annotations = method.getAnnotationsByType();
+
             //메서드 호출 허용
             method.setAccessible(true);
             Object o = constructor.newInstance();
