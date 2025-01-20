@@ -1,26 +1,41 @@
 package com.example.java.work.practice.junit.calculator.entity;
 
+import com.example.java.work.practice.junit.junit.annotation.AfterEachJ;
+import com.example.java.work.practice.junit.junit.annotation.BeforeEachJ;
+import com.example.java.work.practice.junit.junit.annotation.TestJ;
+
 public class CalculatorTest {
 
-    private Calculator calculator;
+    public static int runSetupOrNot = 0;
 
-    void add() {
-        //given
-        Calculator calculator = new Calculator();
-
-        //when
-        //int result = calculator.add(1, 2);
-        System.out.println("add 테스트");
-        //then
+    @BeforeEachJ
+    void setUp() {
+        System.out.println("before each");
+        runSetupOrNot++;
     }
 
+    @AfterEachJ
+    void tearDown() {
+        System.out.println("after each");
+    }
+
+    @TestJ
+    void add() {
+        //when
+        System.out.println("add 테스트");
+    }
+
+    @TestJ
     void subtract() {
         System.out.println("substract 테스트");
     }
+
+    @TestJ
     void multiply() {
         System.out.println("multiply 테스트");
     }
 
+    @TestJ
     void divide() {
         System.out.println("divide 테스트");
     }
