@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JTest {
-
+    
     private List<Method> beforeMethods = new ArrayList<>();
 
     private List<Method> methods = new ArrayList<>();
@@ -52,6 +52,7 @@ public class JTest {
         JTestResult testResult = new JTestResult(methods.size(), 0); // 테스트 결과
 
 
+        // testJ annotation 붙은 메소드만 수행
         // 이부분이 tearDown이 된다고 생각하면 되는가..? 조금 헷갈림
         for (Method method : methods) {
             // method에 @Test 어노테이션이 붙이면 continue; 아니면 뺴고

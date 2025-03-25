@@ -26,8 +26,9 @@ public class CalculatorTest {
     }
 
     @TestJ
-    void subtract() {
+    void subtract() throws Exception {
         System.out.println("substract 테스트");
+        throw new Exception("error");
     }
 
     @TestJ
