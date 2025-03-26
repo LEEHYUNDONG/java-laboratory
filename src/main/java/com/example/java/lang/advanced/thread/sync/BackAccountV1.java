@@ -2,7 +2,8 @@ package com.example.java.lang.advanced.thread.sync;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+import static com.example.java.lang.advanced.thread.util.MyLogger.log;
+
 public class BackAccountV1 implements BankAccount{
     private int balance;
 
@@ -12,16 +13,17 @@ public class BackAccountV1 implements BankAccount{
 
     @Override
     public boolean withdraw(int amount) {
-        log.info("거래 시작" + getClass().getSimpleName());
-        log.info("WITHDRAW amount: {} balance: {}", amount, getBalance());
+        log("거래 시작" + getClass().getSimpleName());
+        log("[WITHDRAW START] amount:" +amount + "balance: " + balance);
         if(getBalance() < amount) {
-            log.info("[WITHDRAW FAILED] amount: {} balance: {}", amount, balance);
+            log("[WITHDRAW FAILED] amount:" +amount + "balance: " + balance);
             return false;
         }
         balance -= amount;
-        log.info("[WITHDRAW SUCCESS] amount: {} balance: {}", amount, balance);
+        log("[WITHDRAW SUCCESS] amount:" +amount + "balance: " + balance);
 
-        log.info("거래 종료");
+
+        log("거래 종료");
 
         return true;
     }
