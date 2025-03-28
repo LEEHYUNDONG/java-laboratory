@@ -4,7 +4,7 @@ package com.example.java.lang.advanced.thread.interrupt;
 import static com.example.java.lang.advanced.thread.util.MyLogger.log;
 import static com.example.java.lang.advanced.thread.util.ThreadUtils.sleep;
 
-public class ThreadStopMainV3 {
+public class ThreadStopMainV4 {
 
     public static void main(String[] args) {
         MyTask task = new MyTask();
@@ -23,7 +23,7 @@ public class ThreadStopMainV3 {
 
         @Override
         public void run() {
-            while (!Thread.currentThread().interrupted()) {
+            while (!Thread.interrupted()) {
                 log("작업중...");
             }
             log("work 스레드 인터럽트 상태2 = " + Thread.currentThread().isInterrupted());
