@@ -1,0 +1,23 @@
+package com.example.java.lang.intermediate.generic.ex3;
+
+import com.example.java.lang.intermediate.generic.animal.Cat;
+import com.example.java.lang.intermediate.generic.animal.Dog;
+
+public class AnimalHospitalMainV0 {
+    public static void main(String[] args) {
+        DogHospital dogHospital = new DogHospital();
+        CatHospital catHospital = new CatHospital();
+        Dog dog = new Dog("멍멍이1", 100);
+        Cat cat = new Cat("냐옹이1", 300);
+
+        dogHospital.set(dog);
+        dogHospital.checkup(); // 동물 이름: 멍멍이1, 동물 크기: 100
+
+        catHospital.set(cat);
+        catHospital.checkup(); // 동물 이름: 냐옹이1, 동물 크기: 300
+
+        dogHospital.set(dog);
+        Dog biggerDog = dogHospital.bigger(new Dog("멍멍이2", 200));
+        System.out.println("biggerDog = " + biggerDog);
+    }
+}
