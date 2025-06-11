@@ -1,7 +1,5 @@
 package com.example.java.lang.advanced.thread.sync;
 
-import lombok.extern.slf4j.Slf4j;
-
 import static com.example.java.lang.advanced.thread.util.MyLogger.log;
 
 public class BackAccountV1 implements BankAccount{
