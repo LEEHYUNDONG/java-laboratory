@@ -1,6 +1,6 @@
-package com.example.java.lang.advanced.thread.start;
+package com.example.java.lang.advanced._1.thread.start;
 
-import static com.example.java.lang.advanced.thread.util.MyLogger.log;
+import static com.example.java.lang.advanced._1.thread.util.MyLogger.log;
 
 public class InnerRunnableMainV3 {
 

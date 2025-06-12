@@ -1,4 +1,4 @@
-package com.example.java.lang.advanced.thread.util;
+package com.example.java.lang.advanced._1.thread.util;
 
 
 import java.time.LocalTime;

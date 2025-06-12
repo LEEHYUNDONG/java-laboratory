@@ -3,22 +3,17 @@ package com.example.java.lang.advanced._1.thread.control.join;
 import static com.example.java.lang.advanced._1.thread.util.MyLogger.log;
 import static com.example.java.lang.advanced._1.thread.util.ThreadUtils.sleep;
 
-public class JoinMainV1 {
+public class JoinMainV4 {
     public static void main(String[] args) throws InterruptedException {
         log("Start main()");
         SumTask task1 = new SumTask(1, 50);
-        SumTask task2 = new SumTask(51, 100);
 
         Thread thread1 = new Thread(task1, "thread-1");
-        Thread thread2 = new Thread(task2, "thread-2");
         thread1.start();
-        thread2.start();
-
-        thread2.join();
+        thread1.join(1000); // Wait for thread1 to finish
         log("task1.result = " + task1.result);
-        log("task2.result = " + task2.result);
 
-        int res = task1.result + task2.result;
+        int res = task1.result;
         log("end res = " + res);
         log("end main()");
     }

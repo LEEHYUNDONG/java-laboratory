@@ -1,4 +1,4 @@
-package com.example.java.lang.advanced.thread.start;
+package com.example.java.lang.advanced._1.thread.start;
 
 
 public class DaemonThreadMain {
@@ -12,8 +12,9 @@ public class DaemonThreadMain {
     }
 
     static class DaemonTrhead extends Thread {
+        @Override
         public void run() {
-            System.out.println(Thread.currentThread().getName() + ": DaemonThread run()");
+            System.out.println(Thread.currentThread().getName() + ": DaemonThread run() start");
             try {
                 Thread.sleep(10000);
             } catch (InterruptedException e) {

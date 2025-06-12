@@ -1,8 +1,8 @@
-package com.example.java.lang.advanced.thread.interrupt;
+package com.example.java.lang.advanced._1.thread.interrupt;
 
 
-import static com.example.java.lang.advanced.thread.util.MyLogger.log;
-import static com.example.java.lang.advanced.thread.util.ThreadUtils.sleep;
+import static com.example.java.lang.advanced._1.thread.util.MyLogger.log;
+import static com.example.java.lang.advanced._1.thread.util.ThreadUtils.sleep;
 
 public class ThreadStopMainV2 {
 
@@ -27,6 +27,7 @@ public class ThreadStopMainV2 {
                 while (!Thread.currentThread().isInterrupted()) {
                     log("작업중...");
                     Thread.sleep(3000);
+                    log("work 스레드 인터럽트 상태1.5 = " + Thread.currentThread().getState());
                 }
             } catch (InterruptedException e) {
                 log("work 스레드 인터럽트 상태2 = " + Thread.currentThread().isInterrupted());

@@ -1,4 +1,4 @@
-package com.example.java.lang.advanced.thread.sync;
+package com.example.java.lang.advanced._1.thread.sync;
 
 public interface BankAccount {
 

@@ -1,10 +1,10 @@
-package com.example.java.lang.advanced.thread.sync;
+package com.example.java.lang.advanced._1.thread.sync;
 
 public class WithdrawTask implements Runnable{
-    private BackAccountV1 bankAccount;
+    private BankAccount bankAccount;
     private int amount;
 
-    public WithdrawTask(BackAccountV1 bankAccount, int amount) {
+    public WithdrawTask(BankAccount bankAccount, int amount) {
         this.bankAccount = bankAccount;
         this.amount = amount;
     }

@@ -1,8 +1,8 @@
-package com.example.java.lang.advanced.thread.interrupt;
+package com.example.java.lang.advanced._1.thread.interrupt;
 
 
-import static com.example.java.lang.advanced.thread.util.MyLogger.log;
-import static com.example.java.lang.advanced.thread.util.ThreadUtils.sleep;
+import static com.example.java.lang.advanced._1.thread.util.MyLogger.log;
+import static com.example.java.lang.advanced._1.thread.util.ThreadUtils.sleep;
 
 public class ThreadStopMainV3 {
 

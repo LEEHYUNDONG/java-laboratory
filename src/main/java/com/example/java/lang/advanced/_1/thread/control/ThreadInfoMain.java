@@ -1,9 +1,9 @@
-package com.example.java.lang.advanced.thread.control;
+package com.example.java.lang.advanced._1.thread.control;
 
 
-import com.example.java.lang.advanced.thread.start.HelloRunnable;
+import com.example.java.lang.advanced._1.thread.start.HelloRunnable;
 
-import static com.example.java.lang.advanced.thread.util.MyLogger.log;
+import static com.example.java.lang.advanced._1.thread.util.MyLogger.log;
 
 public class ThreadInfoMain {
     public static void main(String[] args) {
