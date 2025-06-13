@@ -8,7 +8,10 @@ public class BankMain {
     public static void main(String[] args) throws InterruptedException {
 //        BackAccountV1 bankAccount = new BackAccountV1(1000);
 //        BankAccountV2 bankAccount = new BankAccountV2(1000);
-        BankAccount bankAccount = new BankAccoutnV3(1000);
+//        BankAccount bankAccount = new BankAccoutnV3(1000);
+//        BankAccount bankAccount = new BankAccoutnV4(1000);
+//        BankAccount bankAccount = new BankAccoutnV5(1000);
+        BankAccount bankAccount = new BankAccoutnV6(1000);
 
         Thread thread1 = new Thread(new WithdrawTask(bankAccount, 800), "withdraw-1");
         Thread thread2 = new Thread(new WithdrawTask(bankAccount, 800), "withdraw-2");
