@@ -1,5 +1,7 @@
 package com.example.java.lang.advanced._1.thread.bounded;
 
+import static com.example.java.lang.advanced._1.thread.util.MyLogger.log;
+
 public class ConsumerTask implements Runnable {
     private BoundedQueue queue;
 
@@ -9,8 +11,8 @@ public class ConsumerTask implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("[소비 시도]  ? <- " + queue);
+        log("[소비 시도]  ? <- " + queue);
         String data = queue.take();
-        System.out.println("[소비 완료] " + data + " -> " + queue);
+        log("[소비 완료] " + data + " -> " + queue);
     }
 }
