@@ -1,4 +1,4 @@
-package com.example.java.lang.intermediate.collection;
+package com.example.java.lang.intermediate.collection.array;
 
 public class MyArrayListV1Main {
     public static void main(String[] args) {
