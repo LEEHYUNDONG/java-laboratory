@@ -1,7 +1,5 @@
 package com.example.java.lang.intermediate.nested.inner.ex;
 
-import lombok.Setter;
-
 /**
  * @author : lhd
  * @packageName : com.example.java.java1.intermediate.nested.inner.ex
@@ -13,7 +11,6 @@ import lombok.Setter;
  * ====================================================
  * 2024-08-19         lhd
  */
-@Setter
 public class Order {
     private static int orderNum;
     private String itemName;
@@ -44,5 +41,13 @@ public class Order {
                     '}');
             return orderNum++;
         }
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
