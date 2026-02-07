@@ -17,14 +17,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.projectlombok:lombok'
 	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
 	implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
 
-	compileOnly('org.projectlombok:lombok')
-	annotationProcessor('org.projectlombok:lombok') // 추가
-	testAnnotationProcessor 'org.projectlombok:lombok'
+	compileOnly('org.projectlombok:lombok:1.18.34')
+	annotationProcessor('org.projectlombok:lombok:1.18.34')
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	//aop
