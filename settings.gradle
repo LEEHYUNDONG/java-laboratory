@@ -1,1 +1,7 @@
 rootProject.name = 'java'
+
+include 'algorithm'
+include 'designpattern'
+include 'effectivejava'
+include 'lang'
+include 'practice'
