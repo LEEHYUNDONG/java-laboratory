@@ -1,5 +1,11 @@
 package com.easttwave.pr.architecture.hexagonal.ads.serving.domain;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class DeviceInfo {
 
     private String deviceId;            // ADID, IDFA
@@ -9,4 +15,5 @@ public class DeviceInfo {
     private String appVersion;
 
     private ScreenSize screenSize;
+
 }

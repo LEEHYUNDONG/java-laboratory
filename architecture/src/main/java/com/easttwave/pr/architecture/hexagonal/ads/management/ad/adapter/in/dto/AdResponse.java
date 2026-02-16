@@ -11,7 +11,7 @@ public record AdResponse(
 ) {
     public static AdResponse of(com.easttwave.pr.architecture.hexagonal.ads.management.ad.domain.Ad ad) {
         return new AdResponse(
-                ad.getAdId(),
+                ad.getAdId().value(),
                 ad.getTitle(),
                 ad.getDescription(),
                 ad.getImageUri().toString(),
