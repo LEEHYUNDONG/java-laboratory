@@ -6,6 +6,7 @@ import java.util.List;
 
 public record ServableAdsRequest(
         List<String> slotId,
-        DeviceInfo deviceInfo
+        DeviceInfo deviceInfo,
+        Integer size
 ) {
 }

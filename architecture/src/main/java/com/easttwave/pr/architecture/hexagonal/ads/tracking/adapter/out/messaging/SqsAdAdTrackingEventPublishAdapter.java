@@ -12,6 +12,7 @@ public class SqsAdAdTrackingEventPublishAdapter implements AdTrackingEventPublis
 
     private static final String queueName = "ad-tracking-event-queue.fifo";
 
+    // 추상화해서 실제 운영과 local, test를 갈아 낄수 있도록 구성해야함
     private final FakeSqsClient fakeSqsClient;
 
     @Override

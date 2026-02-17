@@ -8,9 +8,9 @@ import java.time.LocalDate;
 @Getter
 public class DateRange {
 
-    LocalDate startDate;
+    private final LocalDate startDate;
 
-    LocalDate endDate;
+    private final LocalDate endDate;
 
     public DateRange(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
@@ -18,6 +18,6 @@ public class DateRange {
     }
 
     public static boolean isValidDate(LocalDate date) {
-        return date.isAfter(LocalDate.now());
+        return date.isAfter(java.time.LocalDate.now());
     }
 }
