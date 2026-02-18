@@ -1,4 +1,4 @@
-package com.example.java.designpattern._03_composite.after;
+package com.example.java.designpattern._03_composite.after._1;
 
 public class Claude extends GenerativeAi {
 

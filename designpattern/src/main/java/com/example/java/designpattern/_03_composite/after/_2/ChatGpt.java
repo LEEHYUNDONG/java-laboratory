@@ -1,18 +1,24 @@
-package com.example.java.designpattern._03_composite.after;
+package com.example.java.designpattern._03_composite.after._2;
 
-public class ChatGpt extends GenerativeAi {
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class ChatGpt implements GenerativeAi2 {
 
     private static final String name = "ChatGpt";
 
-    public ChatGpt() {
-        super(name);
-    }
 
+    @Override
+    public boolean isSupport(String name) {
+        return ChatGpt.name.equals(name);
+    }
 
     @Override
     public void algorithm() {
         System.out.println("ChatGPT 방식으로 해결해보려 합니다.");
     }
+
 
     @Override
     public void askQuetionAboutMoreInformation() {
