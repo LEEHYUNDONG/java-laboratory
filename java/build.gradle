@@ -1,0 +1,22 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    implementation 'io.github.resilience4j:resilience4j-ratelimiter:2.2.0'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+}

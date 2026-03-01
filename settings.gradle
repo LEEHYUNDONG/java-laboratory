@@ -1,8 +1,4 @@
-rootProject.name = 'java'
+rootProject.name = 'java-laboratory'
 
-include 'algorithm'
-include 'designpattern'
-include 'effectivejava'
-include 'lang'
-include 'practice'
+include 'java'
 include 'architecture'
