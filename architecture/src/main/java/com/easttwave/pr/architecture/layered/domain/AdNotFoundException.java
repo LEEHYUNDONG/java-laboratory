@@ -7,4 +7,9 @@ public class AdNotFoundException extends RuntimeException {
     public AdNotFoundException(Long adId) {
         this.id = adId;
     }
+
+    public AdNotFoundException(Long adId, String message) {
+        super(message);
+        this.id = adId;
+    }
 }

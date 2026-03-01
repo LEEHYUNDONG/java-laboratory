@@ -28,7 +28,4 @@ public interface GenerativeAi2 {
     default void answer(String name) {
         System.out.println(name + "가 답변합니다.");
     }
-
-
-
 }

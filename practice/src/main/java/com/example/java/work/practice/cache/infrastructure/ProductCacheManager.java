@@ -56,13 +56,16 @@ public class ProductCacheManager {
 
         if (!ObjectUtils.isEmpty(productCache) && !isExpired(productId)) {
             hitCount.incrementAndGet();
-            return cache.get(productId).getProduct();
+            return productCache.getProduct();
         }
         Product product = null;
 
 
-        if(lock.get(productId).tryLock()) {
+        lock.get(productId).lock();
+        try {
             product = loadFromApi(productId);
+        } finally {
+            lock.get(productId).unlock();
         }
 
         missCount.incrementAndGet();
@@ -83,6 +86,7 @@ public class ProductCacheManager {
     public void evict(Long productId) {
         // TODO: 구현
         cache.remove(productId);
+        lock.remove(productId);
     }
 
     /**
@@ -91,6 +95,7 @@ public class ProductCacheManager {
     public void clear() {
         // TODO: 구현
         cache.forEach((key, value) -> cache.remove(key));
+        lock.clear();
     }
 
     /**
