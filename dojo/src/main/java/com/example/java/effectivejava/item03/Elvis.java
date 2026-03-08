@@ -3,17 +3,7 @@ package com.example.java.effectivejava.item03;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-/**
- * @author : lhd
- * @packageName : com.example.java.effectivejava.item03
- * @fileName : java
- * @description :
- * <p>
- * ====================================================
- * DATE            AUTHOR              NOTE
- * ====================================================
- * 2024-08-27         lhd
- */
+
 public class Elvis {
     private static final Elvis INSTANCE = new Elvis();
     private static boolean created;

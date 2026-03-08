@@ -1,4 +1,4 @@
-package com.example.java.lang.practice.enumerated._1.before;
+package com.example.java.practice.enumerated._1.before;
 
 public class DiscountApp {
 

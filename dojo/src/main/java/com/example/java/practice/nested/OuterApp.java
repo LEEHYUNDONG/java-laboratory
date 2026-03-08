@@ -1,4 +1,4 @@
-package com.example.java.lang.practice.nested;
+package com.example.java.practice.nested;
 
 public class OuterApp {
 
