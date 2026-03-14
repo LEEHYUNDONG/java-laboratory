@@ -15,7 +15,7 @@ class MaxSubArrayTest {
     void test1() {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
-        int result = solution.maxSubArraySolution(nums);
+        int result = solution.maxSubArrayBruteForce(nums);
 
         assertThat(result).isEqualTo(6); // [4,-1,2,1]
     }
@@ -25,7 +25,7 @@ class MaxSubArrayTest {
     void test2() {
         int[] nums = {1};
 
-        int result = solution.maxSubArraySolution(nums);
+        int result = solution.maxSubArrayBruteForce(nums);
 
         assertThat(result).isEqualTo(1);
     }
@@ -35,7 +35,7 @@ class MaxSubArrayTest {
     void test3() {
         int[] nums = {5, 4, -1, 7, 8};
 
-        int result = solution.maxSubArraySolution(nums);
+        int result = solution.maxSubArrayBruteForce(nums);
 
         assertThat(result).isEqualTo(23);
     }
@@ -45,7 +45,7 @@ class MaxSubArrayTest {
     void testAllNegative() {
         int[] nums = {-3, -2, -5, -1};
 
-        int result = solution.maxSubArraySolution(nums);
+        int result = solution.maxSubArrayBruteForce(nums);
 
         assertThat(result).isEqualTo(-1);
     }
@@ -55,7 +55,7 @@ class MaxSubArrayTest {
     void testMixed() {
         int[] nums = {-2, -1, 3, -1};
 
-        int result = solution.maxSubArraySolution(nums);
+        int result = solution.maxSubArrayBruteForce(nums);
 
         assertThat(result).isEqualTo(3);
     }
@@ -65,7 +65,7 @@ class MaxSubArrayTest {
     void testLargeArray() {
         int[] nums = {1, -1, 1, -1, 1, -1, 1, -1, 1, 100};
 
-        int result = solution.maxSubArraySolution(nums);
+        int result = solution.maxSubArrayBruteForce(nums);
 
         assertThat(result).isEqualTo(101); // 전체 배열의 합
     }
@@ -76,15 +76,15 @@ class MaxSubArrayTest {
         int[] nums = {};
 
         assertThrows(IllegalArgumentException.class,
-            () -> solution.maxSubArraySolution(nums));
+            () -> solution.maxSubArrayBruteForce(nums));
     }
 
     @Test
     @DisplayName("학생 구현 테스트 (구현 후 주석 해제)")
     void testStudentImplementation() {
         // TODO: 구현 후 아래 주석을 해제하고 테스트하세요
-        // int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        // int result = solution.maxSubArray(nums);
-        // assertThat(result).isEqualTo(6);
+         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+         int result = solution.maxSubArray(nums);
+         assertThat(result).isEqualTo(6);
     }
 }

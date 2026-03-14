@@ -7,21 +7,21 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 문제: 중복 결제 방지 시스템
- *
+ * <p>
  * 실무 시나리오:
  * 사용자가 실수로 또는 악의적으로 같은 주문을 여러 번 결제하는 것을 방지하는 시스템을 구현하세요.
- *
+ * <p>
  * 중복 결제 판단 기준:
  * - 같은 사용자
  * - 같은 금액
  * - 같은 상품 목록
  * - 특정 시간(5분) 이내
- *
+ * <p>
  * 요구사항:
  * 1. 중복 결제 여부를 빠르게 판단해야 함 (O(1) 시간 복잡도)
  * 2. 오래된 결제 정보는 자동으로 제거되어야 함 (메모리 누수 방지)
  * 3. 동시성 문제를 고려해야 함 (Thread-safe)
- *
+ * <p>
  * 예시:
  * Payment1: userId=123, amount=10000, products=[A,B], time=10:00
  * Payment2: userId=123, amount=10000, products=[A,B], time=10:03 -> 중복!
@@ -73,8 +73,8 @@ public class DuplicatePaymentDetector {
             if (o == null || getClass() != o.getClass()) return false;
             PaymentAttempt that = (PaymentAttempt) o;
             return amount == that.amount &&
-                   Objects.equals(userId, that.userId) &&
-                   Objects.equals(new HashSet<>(productIds), new HashSet<>(that.productIds));
+                    Objects.equals(userId, that.userId) &&
+                    Objects.equals(new HashSet<>(productIds), new HashSet<>(that.productIds));
         }
 
         @Override
@@ -90,24 +90,36 @@ public class DuplicatePaymentDetector {
 
     /**
      * 중복 결제 시도인지 확인합니다.
+     *
      * @return true if duplicate, false if allowed
      */
     public boolean isDuplicate(PaymentAttempt attempt) {
-        // TODO: 구현하세요
-        // 힌트:
-        // 1. attempt에서 비즈니스 키 생성
-        // 2. 최근 결제 이력 확인
-        // 3. 시간 윈도우 체크
-        // 4. 중복이 아니면 새로운 시도로 기록
-        throw new UnsupportedOperationException("Not implemented yet");
+        // 키값 조회
+        String key = attempt.generateKey();
+
+        // 최근 결제 시간
+        LocalDateTime recentPaymentAttempt = recentPayments.get(key);
+
+        // 최근 결제 시간이 5분 경과했다면 결제 가능
+        if (recentPaymentAttempt != null) {
+            Duration duration = Duration.between(recentPaymentAttempt, attempt.getAttemptTime());
+            if (duration.compareTo(DUPLICATE_CHECK_WINDOW) < 0) {
+                return true;
+            }
+        }
+
+        recentPayments.put(key, attempt.getAttemptTime());
+        return false;
     }
 
     /**
      * 오래된 결제 정보를 제거합니다. (메모리 관리)
      */
     public void cleanupOldRecords(LocalDateTime currentTime) {
-        // TODO: 구현하세요
-        throw new UnsupportedOperationException("Not implemented yet");
+        recentPayments.entrySet().removeIf(entry -> {
+            Duration age = Duration.between(entry.getValue(), currentTime);
+            return age.compareTo(DUPLICATE_CHECK_WINDOW) >= 0;
+        });
     }
 
     // 정답 (참고용)

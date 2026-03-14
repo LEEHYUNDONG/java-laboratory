@@ -23,8 +23,25 @@ public class MaxSubArray {
      * O(n^2) 브루트포스 솔루션
      */
     public int maxSubArrayBruteForce(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            throw new IllegalArgumentException("nums is null or empty");
+        }
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        int answer = nums[0];
 
-        return 0;
+        for (int i = 0; i < nums.length; i++) {
+            currentSum = nums[i];
+            for (int j = i+1; j < nums.length; j++) {
+                currentSum = Math.max(nums[j], nums[j]+currentSum);
+                if (maxSum < currentSum) {
+                    maxSum = currentSum;
+                }
+            }
+            answer = Math.max(answer, maxSum);
+        }
+
+        return answer;
     }
 
     /**

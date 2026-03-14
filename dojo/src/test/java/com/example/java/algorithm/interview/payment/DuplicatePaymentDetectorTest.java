@@ -30,7 +30,7 @@ class DuplicatePaymentDetectorTest {
             now
         );
 
-        boolean isDuplicate = detector.isDuplicateSolution(attempt);
+        boolean isDuplicate = detector.isDuplicate(attempt);
 
         assertThat(isDuplicate).isFalse();
     }
@@ -54,8 +54,8 @@ class DuplicatePaymentDetectorTest {
             now.plusMinutes(3) // 3분 후
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isTrue();
     }
@@ -79,8 +79,8 @@ class DuplicatePaymentDetectorTest {
             now.plusMinutes(6) // 6분 후
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isFalse();
     }
@@ -104,8 +104,8 @@ class DuplicatePaymentDetectorTest {
             now.plusSeconds(10)
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isFalse();
     }
@@ -129,8 +129,8 @@ class DuplicatePaymentDetectorTest {
             now.plusSeconds(10)
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isFalse();
     }
@@ -154,8 +154,8 @@ class DuplicatePaymentDetectorTest {
             now.plusSeconds(10)
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isFalse();
     }
@@ -179,8 +179,8 @@ class DuplicatePaymentDetectorTest {
             now.plusMinutes(1)
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isTrue();
     }
@@ -191,20 +191,20 @@ class DuplicatePaymentDetectorTest {
         LocalDateTime baseTime = LocalDateTime.of(2024, 1, 1, 10, 0);
 
         // 3개의 결제 시도 추가
-        detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user1", 10000, List.of("A"), baseTime
         ));
-        detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user2", 20000, List.of("B"), baseTime.plusMinutes(2)
         ));
-        detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user3", 30000, List.of("C"), baseTime.plusMinutes(11) // 가장 최근 (4분 전)
         ));
 
         assertThat(detector.getRecordCount()).isEqualTo(3);
 
         // 15분 후에 정리 실행
-        detector.cleanupOldRecordsSolution(baseTime.plusMinutes(15));
+        detector.cleanupOldRecords(baseTime.plusMinutes(15));
 
         // 5분 이상 지난 레코드들은 삭제되고, user3만 남음 (4분 전이라 유지)
         assertThat(detector.getRecordCount()).isEqualTo(1);
@@ -229,8 +229,8 @@ class DuplicatePaymentDetectorTest {
             now.plusMinutes(5) // 정확히 5분
         );
 
-        detector.isDuplicateSolution(attempt1);
-        boolean isDuplicate = detector.isDuplicateSolution(attempt2);
+        detector.isDuplicate(attempt1);
+        boolean isDuplicate = detector.isDuplicate(attempt2);
 
         assertThat(isDuplicate).isFalse(); // 5분 이상이므로 허용
     }
@@ -241,18 +241,18 @@ class DuplicatePaymentDetectorTest {
         LocalDateTime now = LocalDateTime.now();
 
         // 같은 사용자, 다른 상품들
-        detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user123", 10000, List.of("A", "B"), now
         ));
-        detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user123", 20000, List.of("C", "D"), now.plusSeconds(30)
         ));
-        detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user123", 30000, List.of("E", "F"), now.plusMinutes(1)
         ));
 
         // 첫 번째 결제와 같은 시도 (중복!)
-        boolean isDuplicate = detector.isDuplicateSolution(new DuplicatePaymentDetector.PaymentAttempt(
+        boolean isDuplicate = detector.isDuplicate(new DuplicatePaymentDetector.PaymentAttempt(
             "user123", 10000, List.of("A", "B"), now.plusMinutes(2)
         ));
 
@@ -264,15 +264,15 @@ class DuplicatePaymentDetectorTest {
     @DisplayName("학생 구현 테스트 (구현 후 주석 해제)")
     void testStudentImplementation() {
         // TODO: 구현 후 아래 주석을 해제하고 테스트하세요
-        // LocalDateTime now = LocalDateTime.now();
-        // DuplicatePaymentDetector.PaymentAttempt attempt1 = new DuplicatePaymentDetector.PaymentAttempt(
-        //     "user123", 10000, Arrays.asList("PROD-A"), now
-        // );
-        // DuplicatePaymentDetector.PaymentAttempt attempt2 = new DuplicatePaymentDetector.PaymentAttempt(
-        //     "user123", 10000, Arrays.asList("PROD-A"), now.plusMinutes(3)
-        // );
-        // detector.isDuplicate(attempt1);
-        // boolean isDuplicate = detector.isDuplicate(attempt2);
-        // assertThat(isDuplicate).isTrue();
+         LocalDateTime now = LocalDateTime.now();
+         DuplicatePaymentDetector.PaymentAttempt attempt1 = new DuplicatePaymentDetector.PaymentAttempt(
+             "user123", 10000, Arrays.asList("PROD-A"), now
+         );
+         DuplicatePaymentDetector.PaymentAttempt attempt2 = new DuplicatePaymentDetector.PaymentAttempt(
+             "user123", 10000, Arrays.asList("PROD-A"), now.plusMinutes(3)
+         );
+         detector.isDuplicate(attempt1);
+         boolean isDuplicate = detector.isDuplicate(attempt2);
+         assertThat(isDuplicate).isTrue();
     }
 }
