@@ -2,7 +2,7 @@ package com.example.java.algorithm.stack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.List;
+import java.util.Set;
 
 /**
  * 유효한 괄호
@@ -68,8 +68,33 @@ public class ValidParentheses {
      * @return 유효한 괄호 문자열
      */
     public String removeInvalidParentheses(String s) {
-        // TODO: Stack을 사용하여 유효하지 않은 괄호를 제거하세요
-        return "";
+        Deque<Character> stack = new ArrayDeque<>();
+        Deque<Character> stack2 = new ArrayDeque<>();
+
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : s.toCharArray()) {
+            if(c == '(' || c == '[' || c == '{') {
+                stack.push(c);
+            } else {
+                if (stack.isEmpty()) continue;
+                char top = stack.getLast();
+                if ((top == '(' && c == ')') ||
+                        (top == '[' && c == ']') ||
+                        (top == '{' && c == '}')
+                ) {
+                    sb.append(top);
+                    while (!stack2.isEmpty()) sb.append(stack2.pop());
+                    sb.append(c);
+                    stack.pop();
+                } else {
+                    if (!Set.of(')', ']', '}').contains(c)) {
+                        stack2.push(c);
+                    }
+                }
+            }
+        }
+        return sb.toString();
     }
 
     /**
@@ -84,8 +109,10 @@ public class ValidParentheses {
      * @return 가장 긴 유효한 괄호의 길이
      */
     public int longestValidParentheses(String s) {
-        // TODO: Stack을 사용하여 가장 긴 유효한 괄호 길이를 구하세요
-        // 힌트: 인덱스를 스택에 저장
-        return 0;
+        if (s == null || s.isEmpty()) return 0;
+        String result = removeInvalidParentheses(s);
+
+
+        return result.length();
     }
 }
