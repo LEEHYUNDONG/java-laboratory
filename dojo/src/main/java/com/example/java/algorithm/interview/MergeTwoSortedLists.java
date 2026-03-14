@@ -38,16 +38,44 @@ public class MergeTwoSortedLists {
      * 반복문을 사용한 솔루션
      */
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        // TODO: 구현하세요
-        throw new UnsupportedOperationException("Not implemented yet");
+        ListNode dummyHead = new ListNode(0);
+        ListNode cur = dummyHead;
+
+        while (list1 != null && list2 != null) {
+            if(list1.val < list2.val) {
+                cur.next = list1;
+                list1 = list1.next;
+            } else {
+                cur.next = list2;
+                list2 = list2.next;
+            }
+            cur = cur.next;
+        }
+
+        cur.next = list1 == null ? list2 : list1;
+
+
+        return dummyHead.next;
     }
 
     /**
      * 재귀를 사용한 솔루션
      */
     public ListNode mergeTwoListsRecursive(ListNode list1, ListNode list2) {
-        // TODO: 구현하세요
-        throw new UnsupportedOperationException("Not implemented yet");
+        if(list1 == null) {
+            return list2;
+        }
+        if(list2 == null){
+            return list1;
+        }
+
+        if(list1.val < list2.val) {
+            list1.next = mergeTwoListsRecursive(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = mergeTwoListsRecursive(list1, list2.next);
+            return list2;
+        }
     }
 
     // 정답 (참고용)

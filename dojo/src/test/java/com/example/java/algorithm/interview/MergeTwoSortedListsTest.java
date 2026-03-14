@@ -18,7 +18,7 @@ class MergeTwoSortedListsTest {
         MergeTwoSortedLists.ListNode list1 = createLinkedList(1, 2, 4);
         MergeTwoSortedLists.ListNode list2 = createLinkedList(1, 3, 4);
 
-        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsSolution(list1, list2);
+        MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(list1, list2);
 
         assertThat(toList(result)).containsExactly(1, 1, 2, 3, 4, 4);
     }
@@ -26,7 +26,7 @@ class MergeTwoSortedListsTest {
     @Test
     @DisplayName("빈 리스트들: [] + [] -> []")
     void test2() {
-        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsSolution(null, null);
+        MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(null, null);
 
         assertThat(result).isNull();
     }
@@ -36,7 +36,7 @@ class MergeTwoSortedListsTest {
     void test3() {
         MergeTwoSortedLists.ListNode list2 = createLinkedList(0);
 
-        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsSolution(null, list2);
+        MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(null, list2);
 
         assertThat(toList(result)).containsExactly(0);
     }
@@ -47,7 +47,7 @@ class MergeTwoSortedListsTest {
         MergeTwoSortedLists.ListNode list1 = createLinkedList(1, 3, 5);
         MergeTwoSortedLists.ListNode list2 = createLinkedList(2, 4, 6, 7, 8);
 
-        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsSolution(list1, list2);
+        MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(list1, list2);
 
         assertThat(toList(result)).containsExactly(1, 2, 3, 4, 5, 6, 7, 8);
     }
@@ -58,7 +58,7 @@ class MergeTwoSortedListsTest {
         MergeTwoSortedLists.ListNode list1 = createLinkedList(1, 2, 3);
         MergeTwoSortedLists.ListNode list2 = createLinkedList(4, 5, 6);
 
-        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsSolution(list1, list2);
+        MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(list1, list2);
 
         assertThat(toList(result)).containsExactly(1, 2, 3, 4, 5, 6);
     }
@@ -69,7 +69,7 @@ class MergeTwoSortedListsTest {
         MergeTwoSortedLists.ListNode list1 = createLinkedList(1, 2, 4);
         MergeTwoSortedLists.ListNode list2 = createLinkedList(1, 3, 4);
 
-        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsRecursiveSolution(list1, list2);
+        MergeTwoSortedLists.ListNode result = solution.mergeTwoListsRecursive(list1, list2);
 
         assertThat(toList(result)).containsExactly(1, 1, 2, 3, 4, 4);
     }
@@ -77,11 +77,10 @@ class MergeTwoSortedListsTest {
     @Test
     @DisplayName("학생 구현 테스트 (구현 후 주석 해제)")
     void testStudentImplementation() {
-        // TODO: 구현 후 아래 주석을 해제하고 테스트하세요
-        // MergeTwoSortedLists.ListNode list1 = createLinkedList(1, 2, 4);
-        // MergeTwoSortedLists.ListNode list2 = createLinkedList(1, 3, 4);
-        // MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(list1, list2);
-        // assertThat(toList(result)).containsExactly(1, 1, 2, 3, 4, 4);
+         MergeTwoSortedLists.ListNode list1 = createLinkedList(1, 2, 4);
+         MergeTwoSortedLists.ListNode list2 = createLinkedList(1, 3, 4);
+         MergeTwoSortedLists.ListNode result = solution.mergeTwoLists(list1, list2);
+         assertThat(toList(result)).containsExactly(1, 1, 2, 3, 4, 4);
     }
 
     // 헬퍼 메서드
