@@ -2,7 +2,6 @@ package com.example.java.algorithm.interview.payment;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.List;
 
 /**
  * 문제: 결제 금액 계산기
@@ -121,13 +120,55 @@ public class PaymentCalculator {
      * 최종 결제 금액을 계산합니다.
      */
     public PaymentResult calculate(PaymentRequest request) {
-        // TODO: 구현하세요
-        // 힌트:
-        // 1. 쿠폰 할인 계산
-        // 2. 포인트 사용 금액 검증 및 적용
-        // 3. 배송비 계산
-        // 4. 최종 금액 계산 (0원 미만 체크)
-        throw new UnsupportedOperationException("Not implemented yet");
+        BigDecimal originalAmount = request.getProductAmount();
+
+        // 1. 쿠폰 적용가 계산
+        BigDecimal couponAmount;
+        Coupon coupon = request.getCoupon();
+
+        if (coupon == null) {
+            couponAmount = BigDecimal.ZERO;
+        } else {
+            if (coupon.getType() == CouponType.FIXED_AMOUNT) {
+                couponAmount = coupon.getValue();
+            } else {
+                couponAmount = originalAmount.multiply(coupon.getValue()).divide(BigDecimal.valueOf(100), RoundingMode.DOWN);
+            }
+        }
+        couponAmount = couponAmount.min(originalAmount);
+
+
+
+        // 2. 포인트 사용 가능 체크
+        // 100원 단위
+        int pointsToUseRequest = request.getPointsToUse();
+        BigDecimal pointsToUse;
+        BigDecimal maxPointUsage = originalAmount.multiply(MAX_POINT_USAGE_RATE)
+                .setScale(0, RoundingMode.DOWN);
+
+        if (pointsToUseRequest == 0) {
+            pointsToUse = BigDecimal.ZERO;
+        } else {
+             pointsToUse = BigDecimal.valueOf(pointsToUseRequest);
+            if (pointsToUse.intValueExact() % POINT_UNIT != 0) {
+                throw new IllegalArgumentException("100원 단위로 포인트 사용이 가능합니다.");
+            }
+
+            pointsToUse = new BigDecimal(Math.min(
+                    pointsToUseRequest,
+                    maxPointUsage.intValue()
+            ));
+        }
+
+        // 배송비 계산
+        BigDecimal shippingFee;
+        if (originalAmount.compareTo(FREE_SHIPPING_THRESHOLD) >= 0) {
+            shippingFee = BigDecimal.ZERO;
+        } else {
+            shippingFee = SHIPPING_FEE;
+        }
+
+        return new PaymentResult(originalAmount, couponAmount, pointsToUse, shippingFee, originalAmount.subtract(couponAmount).subtract(pointsToUse).add(shippingFee));
     }
 
     // 정답 (참고용)

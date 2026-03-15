@@ -25,7 +25,7 @@ class PaymentCalculatorTest {
             5000
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getOriginalAmount()).isEqualByComparingTo("50000");
         assertThat(result.getCouponDiscount()).isEqualByComparingTo("5000"); // 10% of 50,000
@@ -47,7 +47,7 @@ class PaymentCalculatorTest {
             0
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getCouponDiscount()).isEqualByComparingTo("5000");
         assertThat(result.getPointsUsed()).isEqualByComparingTo("0");
@@ -65,7 +65,7 @@ class PaymentCalculatorTest {
             10000 // 50% 초과 시도
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getPointsUsed()).isEqualByComparingTo("5000"); // 최대 50%만 사용
         assertThat(result.getShippingFee()).isEqualByComparingTo("3000");
@@ -81,7 +81,7 @@ class PaymentCalculatorTest {
             5050 // 100원 단위 아님
         );
 
-        assertThatThrownBy(() -> calculator.calculateSolution(request))
+        assertThatThrownBy(() -> calculator.calculate(request))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("100원 단위");
     }
@@ -99,7 +99,7 @@ class PaymentCalculatorTest {
             0
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getCouponDiscount()).isEqualByComparingTo("5000"); // 최대 상품 금액까지만
         assertThat(result.getFinalAmount()).isEqualByComparingTo("3000"); // 0 + 배송비
@@ -114,7 +114,7 @@ class PaymentCalculatorTest {
             5000
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getCouponDiscount()).isEqualByComparingTo("0");
         assertThat(result.getPointsUsed()).isEqualByComparingTo("5000");
@@ -135,7 +135,7 @@ class PaymentCalculatorTest {
             0
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         // 12,345 * 0.15 = 1,851.75 -> 1,851 (소수점 버림)
         assertThat(result.getCouponDiscount()).isEqualByComparingTo("1851");
@@ -150,7 +150,7 @@ class PaymentCalculatorTest {
             0
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getShippingFee()).isEqualByComparingTo("0"); // 30,000원 이상 무료
     }
@@ -164,7 +164,7 @@ class PaymentCalculatorTest {
             0
         );
 
-        PaymentCalculator.PaymentResult result = calculator.calculateSolution(request);
+        PaymentCalculator.PaymentResult result = calculator.calculate(request);
 
         assertThat(result.getShippingFee()).isEqualByComparingTo("3000"); // 유료
     }
